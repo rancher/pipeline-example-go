@@ -1,0 +1,36 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: helloserver-service
+spec:
+  selector:
+    app: helloserver
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-helloserver
+  labels:
+    app: helloserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helloserver
+  template:
+    metadata:
+      labels:
+        app: helloserver
+    spec:
+      imagePullSecrets:
+      - name: pipeline-docker-registry
+      containers:
+      - name: helloserver
+        image: ${CICD_LOCAL_REGISTRY}/example-helloserver:${CICD_EXECUTION_SEQUENCE}
+        ports:
+        - containerPort: 80
