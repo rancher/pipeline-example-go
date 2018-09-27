@@ -12,7 +12,7 @@ This is a sample golang project to demonstrate the integration with rancher pipe
 
 # Mike
 
-test
+test PR
 
 # License
 
