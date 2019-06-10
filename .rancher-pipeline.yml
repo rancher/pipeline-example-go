@@ -19,3 +19,11 @@ stages:
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
+notification:
+  recipients:
+  - recipient: '#general'
+    notifier: c-zvjb9:n-29mjb
+  condition:
+  - Success
+  - Changed
+  - Failed
