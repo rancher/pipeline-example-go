@@ -21,8 +21,8 @@ stages:
       path: ./deployment.yaml
 notification:
   recipients:
-  - recipient: '#general'
-    notifier: c-zvjb9:n-29mjb
+  - recipient: http://103.210.23.154:31314/rancher-webhook
+    notifier: c-nhgtx:n-2pfvq
   condition:
   - Success
   - Changed
