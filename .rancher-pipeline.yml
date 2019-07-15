@@ -7,9 +7,9 @@ stages:
         mkdir -p /go/src/github.com/rancher
         ln -s `pwd` /go/src/github.com/rancher/pipeline-example-go
         cd /go/src/github.com/rancher/pipeline-example-go
-        echo ${CICD_GIT_REF}
         go build -o bin/hello-server
         go test -cover
+        echo ${CICD_GIT_REF}
 - name: Publish
   steps:
   - publishImageConfig:
