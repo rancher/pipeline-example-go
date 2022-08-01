@@ -31,6 +31,6 @@ spec:
       - name: pipeline-docker-registry
       containers:
       - name: helloserver
-        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+        image: example-helloserver:v1
         ports:
         - containerPort: 80
